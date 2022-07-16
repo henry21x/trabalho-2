@@ -1,0 +1,18 @@
+{% if dados %}
+<form action="{{ url_for("MusicaView:cadastrar_1", id = dados.getId()) }}" method="post">
+    <label for="id">Id: </label>
+    <input type="text" id="id" name="id"  value="{{ dados.getId() }}" readonly>
+{% else %}
+    <form action="{{ url_for("MusicaView:cadastrar_0") }}" method="post">
+{% endif %}
+<label for="name">Nome: </label>
+<input type="text" id="name" name="nome" placeholder="Digite o nome da música" {% if dados %} value="{{ dados.getNome() }}" {% endif %}>
+<label for="album">Album: </label>
+<input type="text" id="album" name="album" placeholder="Digite o nome do album" {% if dados %} value="{{ dados.getAlbum() }}" {% endif %}>
+<label for="ano">Ano: </label>
+<input type="text" id="ano" name="ano" placeholder="Digite o ano de lançamento da música" {% if dados %} value="{{ dados.getAno() }}" {% endif %}>
+<label for="artista">Artista: </label>
+<input type="text" id="artista" name="artista" placeholder="Digite o nome do cantor/banda" {% if dados %} value="{{ dados.getArtista() }}" {% endif %}>
+<label for="genero">Genero da musica: </label>
+<input type="text" id="genero" name="genero" placeholder="Digite o genero da musica" {% if dados %} value="{{ dados.getGenero() }}" {% endif %}>
+<button type="submit">Enviar Dados</button>
